@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMN Panel</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #0b1020;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    header h1 {
+      color: #7c83ff;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: #171f35;
+      padding: 22px;
+      margin: 18px 0;
+      border-radius: 15px;
+      border: 1px solid #303b57;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 13px;
+      margin-top: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input, select {
+      background: #0b1020;
+      color: white;
+      border: 1px solid #475569;
+    }
+
+    button {
+      background: #7167ff;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5b50e8;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>SMN PANEL</h1>
+      <p>Your Social Media Growth Dashboard</p>
+    </header>
+
+    <section class="card">
+      <h2>Welcome 👋</h2>
+      <p>
+        SMN Panel में आपका स्वागत है।
+        अपने सोशल मीडिया अकाउंट की ग्रोथ
+        बेहतर बनाने के लिए शुरुआत करें।
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Growth Assistant 🚀</h2>
+
+      <label for="platform">सोशल मीडिया चुनें</label>
+
+      <select id="platform">
+        <option value="Instagram">Instagram</option>
+        <option value="YouTube">YouTube</option>
+        <option value="Facebook">Facebook</option>
+      </select>
+
+      <label for="username">अपना Username लिखें</label>
+
+      <input
+        id="username"
+        type="text"
+        placeholder="अपना username लिखें"
+      >
+
+      <button onclick="showTips()">
+        Growth Tips देखें
+      </button>
+
+      <p id="result" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>ग्रोथ के टिप्स 💡</h2>
+      <p>• नियमित रूप से अच्छा कंटेंट पोस्ट करें।</p>
+      <p>• अपने दर्शकों से बातचीत करें।</p>
+      <p>• सही हैशटैग और आकर्षक शीर्षक इस्तेमाल करें।</p>
+      <p>• अपने अकाउंट की वास्तविक एनालिटिक्स देखें।</p>
+    </section>
+
+    <footer>
+      <p>© 2026 SMN Panel</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function showTips() {
+      const platform =
+        document.getElementById("platform").value;
+
+      const username =
+        document.getElementById("username").value.trim();
+
+      const result =
+        document.getElementById("result");
+
+      if (!username) {
+        result.textContent =
+          "कृपया पहले अपना username लिखें।";
+        return;
+      }
+
+      result.textContent =
+        platform + " के लिए नियमित पोस्ट करें, " +
+        "अच्छा कंटेंट बनाएँ और दर्शकों से जुड़ें। " +
+        "यह डैशबोर्ड अपने-आप फॉलोअर्स नहीं बढ़ाता।";
+    }
+  </script>
+</body>
+</html>
