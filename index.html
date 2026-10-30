@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My SMM Panel Test</title>
+  <title>SMN Panel</title>
 
   <style>
     * {
@@ -12,7 +12,7 @@
 
     body {
       margin: 0;
-      padding: 20px;
+      padding: 15px;
       background: #0b1020;
       color: white;
       font-family: Arial, sans-serif;
@@ -20,18 +20,42 @@
 
     .container {
       max-width: 600px;
-      margin: 30px auto;
+      margin: 20px auto;
     }
 
     header {
-      text-align: center;
-      padding: 25px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5px;
     }
 
     header h1 {
-      color: #7c83ff;
-      font-size: 36px;
-      margin-bottom: 10px;
+      color: #8b85ff;
+      font-size: 25px;
+      margin: 0;
+    }
+
+    .more-btn {
+      width: auto;
+      padding: 10px 18px;
+      margin: 0;
+      background: #7167ff;
+    }
+
+    .menu {
+      display: none;
+      background: #171f35;
+      border: 1px solid #303b57;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .menu button {
+      margin-top: 5px;
+      background: #25304b;
+      text-align: left;
     }
 
     .card {
@@ -44,6 +68,7 @@
 
     h2 {
       margin-top: 0;
+      color: #a5a0ff;
     }
 
     p {
@@ -51,10 +76,16 @@
       line-height: 1.6;
     }
 
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #e2e8f0;
+    }
+
     input, select, button {
       width: 100%;
       padding: 13px;
-      margin-top: 12px;
+      margin-top: 9px;
       border-radius: 8px;
       font-size: 16px;
     }
@@ -77,6 +108,19 @@
       background: #5b50e8;
     }
 
+    .service-btn {
+      text-align: left;
+      background: #25304b;
+    }
+
+    #result {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #0b1020;
+      line-height: 1.6;
+    }
+
     footer {
       text-align: center;
       margin-top: 30px;
@@ -86,84 +130,99 @@
 </head>
 
 <body>
-  <div class="container">
 
-    <header>
-      <h1>SMN PANEL</h1>
-      <p>Your Social Media Growth Dashboard</p>
-    </header>
+<div class="container">
 
-    <section class="card">
-      <h2>Welcome 👋</h2>
-      <p>
-        SMN Panel में आपका स्वागत है।
-        अपने सोशल मीडिया अकाउंट की ग्रोथ
-        बेहतर बनाने के लिए शुरुआत करें।
-      </p>
-    </section>
+  <header>
+    <h1>SMN PANEL 🚀</h1>
+    <button class="more-btn" onclick="toggleMenu()">☰ More</button>
+  </header>
 
-    <section class="card">
-      <h2>Growth Assistant 🚀</h2>
-
-      <label for="platform">सोशल मीडिया चुनें</label>
-
-      <select id="platform">
-        <option value="Instagram">Instagram</option>
-        <option value="YouTube">YouTube</option>
-        <option value="Facebook">Facebook</option>
-      </select>
-
-      <label for="username">अपना Username लिखें</label>
-
-      <input
-        id="username"
-        type="text"
-        placeholder="अपना username लिखें"
-      >
-
-      <button onclick="showTips()">
-        Growth Tips देखें
-      </button>
-
-      <p id="result" aria-live="polite"></p>
-    </section>
-
-    <section class="card">
-      <h2>ग्रोथ के टिप्स 💡</h2>
-      <p>• नियमित रूप से अच्छा कंटेंट पोस्ट करें।</p>
-      <p>• अपने दर्शकों से बातचीत करें।</p>
-      <p>• सही हैशटैग और आकर्षक शीर्षक इस्तेमाल करें।</p>
-      <p>• अपने अकाउंट की वास्तविक एनालिटिक्स देखें।</p>
-    </section>
-
-    <footer>
-      <p>© 2026 SMN Panel</p>
-    </footer>
-
+  <div class="menu" id="menu">
+    <button onclick="selectPlatform('Instagram')">📸 Instagram</button>
+    <button onclick="selectPlatform('YouTube')">▶️ YouTube</button>
+    <button onclick="selectPlatform('Facebook')">🔵 Facebook</button>
   </div>
 
-  <script>
-    function showTips() {
-      const platform =
-        document.getElementById("platform").value;
+  <section class="card">
+    <h2>Welcome 👋</h2>
+    <p>
+      SMN Panel में आपका स्वागत है।
+      अपनी पसंद का सोशल मीडिया प्लेटफॉर्म चुनें
+      और उपलब्ध सेवाएँ देखें।
+    </p>
+  </section>
 
-      const username =
-        document.getElementById("username").value.trim();
+  <section class="card">
+    <h2>हमारी Services</h2>
 
-      const result =
-        document.getElementById("result");
+    <button class="service-btn"
+      onclick="selectPlatform('Instagram')">
+      📸 Instagram Services
+    </button>
 
-      if (!username) {
-        result.textContent =
-          "कृपया पहले अपना username लिखें।";
-        return;
-      }
+    <button class="service-btn"
+      onclick="selectPlatform('YouTube')">
+      ▶️ YouTube Services
+    </button>
 
-      result.textContent =
-        platform + " के लिए नियमित पोस्ट करें, " +
-        "अच्छा कंटेंट बनाएँ और दर्शकों से जुड़ें। " +
-        "यह डैशबोर्ड अपने-आप फॉलोअर्स नहीं बढ़ाता।";
-    }
-  </script>
-</body>
-</html>
+    <button class="service-btn"
+      onclick="selectPlatform('Facebook')">
+      🔵 Facebook Services
+    </button>
+  </section>
+
+  <section class="card">
+    <h2 id="formTitle">Order Form</h2>
+
+    <label for="platform">Platform चुनें</label>
+    <select id="platform" onchange="updateServices()">
+      <option value="Instagram">Instagram</option>
+      <option value="YouTube">YouTube</option>
+      <option value="Facebook">Facebook</option>
+    </select>
+
+    <label for="service">Service चुनें</label>
+    <select id="service">
+    </select>
+
+    <label for="link">अपना Profile / Post Link डालें</label>
+    <
+      type="url"
+      id="link"
+      placeholder="https://example.com/your-link"
+    >
+
+    <label for="quantity">Quantity चुनें</label>
+    <select id="quantity">
+      <option value="100">100</option>
+      <option value="500">500</option>
+      <option value="1000">1,000</option>
+      <option value="2000">2,000</option>
+      <option value="5000">5,000</option>
+      <option value="10000">10,000</option>
+      <option value="20000">20,000</option>
+    </select>
+
+    <button onclick="startOrder()">START</button>
+
+    <div id="result" aria-live="polite">
+      अभी कोई ऑर्डर नहीं भेजा गया है।
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 SMN PANEL</p>
+    <p>Social Media Services Dashboard</p>
+  </footer>
+
+</div>
+
+<script>
+
+  const services = {
+    Instagram: [
+      "Instagram Followers",
+      "Instagram Likes",
+      "Instagram Views"
+
